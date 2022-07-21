@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/loginFragment"
+        android:icon="@drawable/user"
+        android:title="Giriş Yap" />
+    <item
+        android:id="@+id/registerFragment"
+        android:icon="@drawable/personal"
+        android:title="Kayıt Ol" />
+</menu>

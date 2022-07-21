@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KFNChatting</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="null_edittext_message">Lütfen alanları doldurunuz.</string>
+    <string name="register_succes_message">Kayıt Olundu</string>
+    <string name="login_error_message">Kullanıcı adı ve ya şifresi yanlış.</string>
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "729525878770",
+    "project_id": "kfnchatting",
+    "storage_bucket": "kfnchatting.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729525878770:android:f26b25198fc0e3da9ab56b",
+        "android_client_info": {
+          "package_name": "com.berkedursunoglu.kfnchatting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729525878770-4hrmc1hm2uk7ukoe8mb7hn05jvl2l7av.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0ALHuAUj25vgA036P-I0PcuQH_MMLfYc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729525878770-4hrmc1hm2uk7ukoe8mb7hn05jvl2l7av.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

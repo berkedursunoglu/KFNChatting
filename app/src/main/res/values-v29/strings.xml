@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="null_edittext_message">Lütfen alanları doldurunuz.</string>
+    <string name="emailwronging">The email address is badly formatted.</string>
+    <string name="passwordwronging">The given password is invalid. [ Password should be at least 6 characters ]</string>
+    <string name="passwordwrongtr">Parola 6 karakterden az olmamalıdır.</string>
+    <string name="emailwrongtr">Kullandığınız email formatı hatalıdır.</string>
+</resources>
