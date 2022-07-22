@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainpage_nav_graph"
+    app:startDestination="@id/mainPageFragment">
+
+    <fragment
+        android:id="@+id/mainPageFragment"
+        android:name="com.berkedursunoglu.kfnchatting.views.MainPageFragment"
+        android:label="MainPageFragment" >
+        <action
+            android:id="@+id/action_mainPageFragment_to_messagePage"
+            app:destination="@id/messagePage" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_addFriendsFragment"
+            app:destination="@id/addFriendsFragment" />
+        <action
+            android:id="@+id/action_mainPageFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messagePage"
+        android:name="com.berkedursunoglu.kfnchatting.views.MessagePage"
+        android:label="MessagePage" >
+        <action
+            android:id="@+id/action_messagePage_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFriendsFragment"
+        android:name="com.berkedursunoglu.kfnchatting.views.AddFriendsFragment"
+        android:label="AddFriendsFragment" >
+        <action
+            android:id="@+id/action_addFriendsFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.berkedursunoglu.kfnchatting.views.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_mainPageFragment"
+            app:destination="@id/mainPageFragment" />
+    </fragment>
+</navigation>

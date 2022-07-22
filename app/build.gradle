@@ -57,6 +57,7 @@ dependencies {
 
     //Firebase library
     implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.2.1'
 
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
