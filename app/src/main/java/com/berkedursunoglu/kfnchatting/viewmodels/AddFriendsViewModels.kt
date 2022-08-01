@@ -17,6 +17,7 @@ class AddFriendsViewModels: ViewModel() {
     private val addFriendsRepository= AddFriendsRepository()
     var addUser = MutableLiveData<ArrayList<UserModel>>()
     var addUserError = MutableLiveData<String>()
+    var addUserResponse = MutableLiveData<Boolean>()
 
     fun getUsers(){
         val addJob = viewModelScope.launch(Dispatchers.IO) {
@@ -25,9 +26,11 @@ class AddFriendsViewModels: ViewModel() {
                     var arrayList = ArrayList<UserModel>()
 
                     value.documents.forEach {
-                        val username = it.get("uid") as String
+                        val username = it.get("id") as String
                         val time = it.get("time") as Timestamp
-                        val user = UserModel(username,time)
+                        val uid = it.get("uid") as String
+                        val collectionsID = it.get("collectionsID") as String
+                        val user = UserModel(username,time,uid,collectionsID)
                         arrayList.add(user)
                     }
                     addUser.value = arrayList
@@ -35,6 +38,14 @@ class AddFriendsViewModels: ViewModel() {
                 if (error != null){
                     addUserError.value = error.localizedMessage
                 }
+            }
+        }
+    }
+
+    fun addFriends(collectionsID:String){
+        val addJOB = viewModelScope.launch(Dispatchers.IO) {
+            addFriendsRepository.requestFriend(collectionsID).addOnSuccessListener {
+                addUserResponse.value = true
             }
         }
     }

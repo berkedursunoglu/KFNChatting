@@ -11,7 +11,6 @@ import kotlinx.coroutines.launch
 class LoginFragmentViewModels: ViewModel() {
 
     private val firebaseAuth = AuthRepository()
-
     var loginLogMessage = MutableLiveData<String>()
     var loginBoolean = MutableLiveData<Boolean>()
 

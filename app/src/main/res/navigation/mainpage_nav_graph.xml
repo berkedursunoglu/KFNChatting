@@ -41,5 +41,16 @@
         <action
             android:id="@+id/action_profileFragment_to_mainPageFragment"
             app:destination="@id/mainPageFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_requestFriendsFragment"
+            app:destination="@id/requestFriendsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestFriendsFragment"
+        android:name="com.berkedursunoglu.kfnchatting.views.RequestFriendsFragment"
+        android:label="RequestFriendsFragment" >
+        <action
+            android:id="@+id/action_requestFriendsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

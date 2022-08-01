@@ -42,7 +42,7 @@ class RegisterFragment : Fragment() {
             ,dataBinding.registerPasswordTwo.text.toString())){
             Toast.makeText(requireContext(),getString(R.string.null_edittext_message),Toast.LENGTH_SHORT).show()
         }else{
-            viewModel.registerLogin(dataBinding.registerEmail.text.toString(),dataBinding.registerPassword.text.toString())
+            viewModel.registerLogin(dataBinding.registerEmail.text.toString(),dataBinding.registerPassword.text.toString(),requireContext())
             viewModel.registerBoolean.observe(this, Observer {
                 if(it){
                     view?.findNavController()?.navigate(RegisterFragmentDirections.actionRegisterFragmentToLoginFragment())

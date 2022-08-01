@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.berkedursunoglu.kfnchatting.R
 import com.berkedursunoglu.kfnchatting.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -37,4 +38,8 @@ class ProfileFragment : Fragment() {
         requireActivity().finish()
     }
 
+    fun gotoRequestFragment(){
+        val action = ProfileFragmentDirections.actionProfileFragmentToRequestFriendsFragment()
+        view?.findNavController()?.navigate(action)
+    }
 }
