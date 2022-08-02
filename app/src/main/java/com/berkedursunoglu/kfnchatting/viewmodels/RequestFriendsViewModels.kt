@@ -20,6 +20,7 @@ class RequestFriendsViewModels: ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             repository.getRequestFriendList(context).addSnapshotListener { value, error ->
                 value.let {
+                    arrayList.clear()
                     value?.documents?.forEach {
                         var apply = it.get("apply") as Boolean
                         var id = it.get("id") as String

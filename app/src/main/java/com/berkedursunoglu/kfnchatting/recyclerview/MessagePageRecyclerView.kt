@@ -16,8 +16,11 @@ class MessagePageRecyclerView :RecyclerView.Adapter<MessagePageViewHolder>() {
     val myData = mutableListOf<MessageModels>()
 
     fun submitList(newData: ArrayList<MessageModels>) {
+        println(" +1 ${myData.toString()}  ")
         myData.clear()
+        println("  +2 ${myData.toString()} ")
         myData.addAll(newData)
+        println(" +3 ${myData.toString()}  ")
         this.notifyDataSetChanged()
     }
 

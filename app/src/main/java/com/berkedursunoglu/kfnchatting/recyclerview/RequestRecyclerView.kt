@@ -21,8 +21,8 @@ class RequestRecyclerView:
 
     fun submitList(newData: ArrayList<RequestModels>) {
         myData.clear()
-        myData.addAll(newData)
         this.notifyDataSetChanged()
+        myData.addAll(newData)
     }
 
     var fireStore= FirebaseFirestore.getInstance()

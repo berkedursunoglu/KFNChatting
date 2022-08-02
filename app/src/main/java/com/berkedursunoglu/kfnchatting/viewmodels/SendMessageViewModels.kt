@@ -25,6 +25,7 @@ class SendMessageViewModels: ViewModel() {
         var arrayList = ArrayList<MessageModels>()
         var getJOB = viewModelScope.launch(Dispatchers.IO) {
             messageRepository.getMessage(anotherUserID).orderBy("time",Query.Direction.ASCENDING).addSnapshotListener { value, error ->
+                arrayList.clear()
                 value?.documents?.forEach {
                     var message = it.get("message") as String
                     var uid = it.get("uid") as String

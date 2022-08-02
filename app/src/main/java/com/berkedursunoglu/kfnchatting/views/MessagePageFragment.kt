@@ -45,9 +45,11 @@ class MessagePage : Fragment() {
         dataBinding.messageRv.layoutManager = LinearLayoutManager(requireContext())
         messagePageRecyclerView = MessagePageRecyclerView()
         dataBinding.messageRv.adapter = messagePageRecyclerView
+
         viewModel.messageLiveData.observe(viewLifecycleOwner, Observer {
             messagePageRecyclerView.submitList(it)
         })
+
     }
 
 
