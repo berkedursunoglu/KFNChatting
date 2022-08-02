@@ -27,12 +27,6 @@ class RequestRecyclerView(var arrayList:ArrayList<RequestModels>):
 
     override fun onBindViewHolder(holder: RequestRecyclerViewHolder, position: Int) {
         holder.binding.variables = arrayList[position]
-        arrayList.forEach {
-            println(it.id)
-            println(it.uid)
-            println(it.apply.toString())
-            println(it.timestamp.toString())
-        }
         holder.binding.addFriendsActions.setOnClickListener {
             var myFriends = hashMapOf("id" to arrayList[position].id, "uid" to arrayList[position].uid)
             var my = hashMapOf("id" to auth.currentUser?.email.toString(),"uid" to auth.currentUser?.uid.toString())

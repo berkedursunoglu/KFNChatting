@@ -4,10 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.berkedursunoglu.kfnchatting.R
 import com.berkedursunoglu.kfnchatting.databinding.MyFriendsRowBinding
 import com.berkedursunoglu.kfnchatting.models.MyFriendsModel
+import com.berkedursunoglu.kfnchatting.views.MyFriendsFragmentDirections
 
 class MyFriendsRecyclerView(var arrayList:ArrayList<MyFriendsModel>):
     RecyclerView.Adapter<MyFriendsViewHolder>() {
@@ -19,6 +21,10 @@ class MyFriendsRecyclerView(var arrayList:ArrayList<MyFriendsModel>):
 
     override fun onBindViewHolder(holder: MyFriendsViewHolder, position: Int) {
         holder.binding.myFriendsModel = arrayList[position]
+        holder.binding.messageThrow.setOnClickListener {
+            val action = MyFriendsFragmentDirections.actionMyFriendsFragmentToMessagePage(arrayList[position].id,arrayList[position].uid)
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun getItemCount(): Int {

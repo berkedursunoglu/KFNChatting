@@ -9,9 +9,6 @@
         android:name="com.berkedursunoglu.kfnchatting.views.MainPageFragment"
         android:label="MainPageFragment" >
         <action
-            android:id="@+id/action_mainPageFragment_to_messagePage"
-            app:destination="@id/messagePage" />
-        <action
             android:id="@+id/action_mainPageFragment_to_addFriendsFragment"
             app:destination="@id/addFriendsFragment" />
         <action
@@ -22,9 +19,12 @@
         android:id="@+id/messagePage"
         android:name="com.berkedursunoglu.kfnchatting.views.MessagePage"
         android:label="MessagePage" >
-        <action
-            android:id="@+id/action_messagePage_to_mainPageFragment"
-            app:destination="@id/mainPageFragment" />
+        <argument
+            android:name="id"
+            app:argType="string" />
+        <argument
+            android:name="uid"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/addFriendsFragment"
@@ -63,5 +63,8 @@
         <action
             android:id="@+id/action_myFriendsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_myFriendsFragment_to_messagePage"
+            app:destination="@id/messagePage" />
     </fragment>
 </navigation>

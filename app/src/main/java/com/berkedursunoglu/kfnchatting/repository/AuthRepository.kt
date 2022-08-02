@@ -15,5 +15,4 @@ class AuthRepository {
     suspend fun loginUser(mail:String,password: String):Task<AuthResult>{
         return firebaseAuth.signInWithEmailAndPassword(mail,password)
     }
-
 }

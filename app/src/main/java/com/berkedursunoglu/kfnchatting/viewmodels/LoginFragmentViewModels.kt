@@ -21,7 +21,7 @@ class LoginFragmentViewModels: ViewModel() {
                 loginBoolean.value = true
                 var shared = context.getSharedPreferences("userPref",Context.MODE_PRIVATE)
                 var edit = shared.edit()
-                edit.putString("userID",it.user?.uid)
+                edit.putString("userUID",it.user?.uid)
                 edit.commit()
             }.addOnFailureListener {
                 loginLogMessage.value = it.localizedMessage?.toString()

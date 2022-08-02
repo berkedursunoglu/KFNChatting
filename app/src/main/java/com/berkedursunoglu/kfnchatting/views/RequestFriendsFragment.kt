@@ -35,18 +35,14 @@ class RequestFriendsFragment : Fragment() {
         dataBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_request_friends, container, false)
         viewModel = ViewModelProvider(this)[RequestFriendsViewModels::class.java]
+        dataBinding.requestRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        dataBinding.requestRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getRequestFriends(requireContext())
         viewModel.requestList.observe(viewLifecycleOwner, Observer {
-            requestFriendsList.clear()
-            it.forEach {
-                requestFriendsList.add(it)
-            }
-            requestFriendsRecyclerView = RequestRecyclerView(requestFriendsList)
+            requestFriendsRecyclerView = RequestRecyclerView(it)
             dataBinding.requestRecyclerView.adapter = requestFriendsRecyclerView
         })
     }
