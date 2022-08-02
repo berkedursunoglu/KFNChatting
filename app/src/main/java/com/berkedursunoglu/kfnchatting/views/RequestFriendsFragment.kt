@@ -40,10 +40,12 @@ class RequestFriendsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        requestFriendsRecyclerView = RequestRecyclerView()
+        dataBinding.requestRecyclerView.adapter = requestFriendsRecyclerView
+
         viewModel.getRequestFriends(requireContext())
         viewModel.requestList.observe(viewLifecycleOwner, Observer {
-            requestFriendsRecyclerView = RequestRecyclerView(it)
-            dataBinding.requestRecyclerView.adapter = requestFriendsRecyclerView
+            requestFriendsRecyclerView.submitList(it)
         })
     }
 

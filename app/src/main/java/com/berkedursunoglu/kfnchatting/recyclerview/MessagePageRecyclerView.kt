@@ -10,10 +10,16 @@ import com.berkedursunoglu.kfnchatting.databinding.MessageCardviewRowBinding
 import com.berkedursunoglu.kfnchatting.models.MessageModels
 import com.google.firebase.auth.FirebaseAuth
 
-class MessagePageRecyclerView(val arrayList:ArrayList<MessageModels>):RecyclerView.Adapter<MessagePageViewHolder>() {
+class MessagePageRecyclerView :RecyclerView.Adapter<MessagePageViewHolder>() {
 
     private val firebaseAuth = FirebaseAuth.getInstance()
+    val myData = mutableListOf<MessageModels>()
 
+    fun submitList(newData: ArrayList<MessageModels>) {
+        myData.clear()
+        myData.addAll(newData)
+        this.notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MessagePageViewHolder {
         val view = DataBindingUtil.inflate<MessageCardviewRowBinding>(LayoutInflater.from(parent.context),
@@ -22,17 +28,17 @@ class MessagePageRecyclerView(val arrayList:ArrayList<MessageModels>):RecyclerVi
     }
 
     override fun onBindViewHolder(holder: MessagePageViewHolder, position: Int) {
-        if (arrayList[position].uid == firebaseAuth.uid){
-            holder.binding.messageTextviewMe.text = arrayList[position].message
+        if (myData[position].uid == firebaseAuth.uid){
+            holder.binding.messageTextviewMe.text = myData[position].message
             holder.binding.messageTextviewMe.visibility = View.VISIBLE
         }else{
-            holder.binding.messageTextviewAgainst.text = arrayList[position].message
+            holder.binding.messageTextviewAgainst.text = myData[position].message
             holder.binding.messageTextviewAgainst.visibility = View.VISIBLE
         }
     }
 
     override fun getItemCount(): Int {
-        return arrayList.size
+        return myData.size
     }
 }
 

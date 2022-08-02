@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.berkedursunoglu.kfnchatting.R
 import com.berkedursunoglu.kfnchatting.databinding.FragmentMessagePageBinding
+import com.berkedursunoglu.kfnchatting.models.MessageModels
 import com.berkedursunoglu.kfnchatting.recyclerview.MessagePageRecyclerView
 import com.berkedursunoglu.kfnchatting.viewmodels.SendMessageViewModels
 
@@ -38,12 +39,14 @@ class MessagePage : Fragment() {
             messageText.let {
                 messageSend(uid!!,it)
             }
+            dataBinding.messageEditText.text.clear()
         }
-        dataBinding.messageRv.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getMessage(uid!!)
+        dataBinding.messageRv.layoutManager = LinearLayoutManager(requireContext())
+        messagePageRecyclerView = MessagePageRecyclerView()
+        dataBinding.messageRv.adapter = messagePageRecyclerView
         viewModel.messageLiveData.observe(viewLifecycleOwner, Observer {
-            messagePageRecyclerView = MessagePageRecyclerView(it)
-            dataBinding.messageRv.adapter = messagePageRecyclerView
+            messagePageRecyclerView.submitList(it)
         })
     }
 

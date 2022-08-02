@@ -9,12 +9,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.berkedursunoglu.kfnchatting.R
 import com.berkedursunoglu.kfnchatting.databinding.AddFriendsCardviewRowBinding
 import com.berkedursunoglu.kfnchatting.databinding.RequestFriendsRowBinding
+import com.berkedursunoglu.kfnchatting.models.MessageModels
 import com.berkedursunoglu.kfnchatting.models.RequestModels
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class RequestRecyclerView(var arrayList:ArrayList<RequestModels>):
+class RequestRecyclerView:
     RecyclerView.Adapter<RequestRecyclerViewHolder>() {
+
+    var myData = mutableListOf<RequestModels>()
+
+    fun submitList(newData: ArrayList<RequestModels>) {
+        myData.clear()
+        myData.addAll(newData)
+        this.notifyDataSetChanged()
+    }
 
     var fireStore= FirebaseFirestore.getInstance()
     var auth =FirebaseAuth.getInstance()
@@ -26,24 +35,24 @@ class RequestRecyclerView(var arrayList:ArrayList<RequestModels>):
     }
 
     override fun onBindViewHolder(holder: RequestRecyclerViewHolder, position: Int) {
-        holder.binding.variables = arrayList[position]
+        holder.binding.variables = myData[position]
         holder.binding.addFriendsActions.setOnClickListener {
-            var myFriends = hashMapOf("id" to arrayList[position].id, "uid" to arrayList[position].uid)
+            var myFriends = hashMapOf("id" to myData[position].id, "uid" to myData[position].uid)
             var my = hashMapOf("id" to auth.currentUser?.email.toString(),"uid" to auth.currentUser?.uid.toString())
             auth.currentUser?.let { it1 ->
-                fireStore.collection("user").document(it1.uid).collection("myFriends").document(arrayList[position].uid).set(myFriends).addOnSuccessListener {
+                fireStore.collection("user").document(it1.uid).collection("myFriends").document(myData[position].uid).set(myFriends).addOnSuccessListener {
                     Toast.makeText(holder.itemView.context,"Arkadaş olarak eklendi",Toast.LENGTH_SHORT).show()
                     holder.binding.addFriendsActions.visibility = View.GONE
                     holder.binding.imageviewCheck.visibility = View.VISIBLE
-                    fireStore.collection("user").document(it1.uid).collection("requestFriends").document(arrayList[position].id).delete()
-                    fireStore.collection("user").document(arrayList[position].uid).collection("myFriends").document(it1.uid).set(my)
+                    fireStore.collection("user").document(it1.uid).collection("requestFriends").document(myData[position].id).delete()
+                    fireStore.collection("user").document(myData[position].uid).collection("myFriends").document(it1.uid).set(my)
                 }
             }
         }
     }
 
     override fun getItemCount(): Int {
-       return arrayList.size
+       return myData.size
     }
 }
 
