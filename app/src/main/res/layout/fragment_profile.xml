@@ -25,10 +25,11 @@
         app:layout_constraintStart_toStartOf="@+id/guideline3" />
 
     <Button
-        android:id="@+id/pending_friend_request"
+        android:id="@+id/myFriends"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bekleyen Arkadaşlık İstekleri"
+        android:text="Arkadaşlarım"
+        android:onClick="@{()-> functions.gotoMyFriendsFragment()}"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
@@ -54,14 +55,14 @@
         android:text="Arkadaşlık İstekleri"
         android:onClick="@{()-> functions.gotoRequestFragment()}"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
-        app:layout_constraintTop_toBottomOf="@+id/pending_friend_request" />
+        app:layout_constraintTop_toBottomOf="@+id/myFriends" />
 
     <ImageView
         android:id="@+id/profile_pictures"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/pending_friend_request"
+        app:layout_constraintBottom_toTopOf="@+id/myFriends"
         app:layout_constraintStart_toStartOf="@+id/guideline3"
         android:src="@drawable/kfnapplogo"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

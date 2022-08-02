@@ -44,6 +44,9 @@
         <action
             android:id="@+id/action_profileFragment_to_requestFriendsFragment"
             app:destination="@id/requestFriendsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_myFriendsFragment"
+            app:destination="@id/myFriendsFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestFriendsFragment"
@@ -51,6 +54,14 @@
         android:label="RequestFriendsFragment" >
         <action
             android:id="@+id/action_requestFriendsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myFriendsFragment"
+        android:name="com.berkedursunoglu.kfnchatting.views.MyFriendsFragment"
+        android:label="MyFriendsFragment" >
+        <action
+            android:id="@+id/action_myFriendsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
 </navigation>

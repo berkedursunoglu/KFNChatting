@@ -15,13 +15,13 @@ class AddFriendsRepository {
         return firebaseStore.collection("user")
     }
 
-    fun requestFriend(collectionsID: String): Task<Void> {
+    fun requestFriend(userUID: String): Task<Void> {
         var user = hashMapOf("id" to firebaseAuth.currentUser?.email,
             "timestap" to Timestamp.now(),
             "uid" to firebaseAuth.currentUser?.uid,
             "apply" to false)
         var request =
-            firebaseStore.collection("user").document(collectionsID).collection("requestFriends").document(firebaseAuth.currentUser!!.email!!).set(user)
+            firebaseStore.collection("user").document(userUID).collection("requestFriends").document(firebaseAuth.currentUser!!.email!!).set(user)
         return request
     }
 

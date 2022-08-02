@@ -51,7 +51,7 @@ class AddFriendsFragment : Fragment() {
             it.forEach {
                 if (user.currentUser?.uid != it.userUID) {
                     var userModel =
-                        UserModel(it.userID, it.userTimestamp, it.userUID, it.collectionsID)
+                        UserModel(it.userID, it.userTimestamp, it.userUID)
                     checkUserList.add(userModel)
                 }
             }

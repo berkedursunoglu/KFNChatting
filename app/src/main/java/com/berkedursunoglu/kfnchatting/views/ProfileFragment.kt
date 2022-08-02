@@ -42,4 +42,9 @@ class ProfileFragment : Fragment() {
         val action = ProfileFragmentDirections.actionProfileFragmentToRequestFriendsFragment()
         view?.findNavController()?.navigate(action)
     }
+
+    fun gotoMyFriendsFragment(){
+        val action = ProfileFragmentDirections.actionProfileFragmentToMyFriendsFragment()
+        view?.findNavController()?.navigate(action)
+    }
 }

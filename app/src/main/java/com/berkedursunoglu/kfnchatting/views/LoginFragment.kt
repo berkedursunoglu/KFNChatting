@@ -42,10 +42,11 @@ class LoginFragment : Fragment() {
         if (Utils.edittextNullCheckTwoVar(dataBinding.loginEmail.text.toString(),dataBinding.loginPassword.text.toString())){
             Toast.makeText(requireContext(),getString(R.string.null_edittext_message),Toast.LENGTH_SHORT).show()
         }else{
-            viewModel.loginUser(dataBinding.loginEmail.text.toString(),dataBinding.loginPassword.text.toString())
+            viewModel.loginUser(dataBinding.loginEmail.text.toString(),dataBinding.loginPassword.text.toString(),requireContext())
             viewModel.loginBoolean.observe(this, Observer {
                 if (it){
                     startActivity(Intent(requireContext(),MainPage::class.java))
+                    requireActivity().finish()
                 }
             })
             viewModel.loginLogMessage.observe(this, Observer {

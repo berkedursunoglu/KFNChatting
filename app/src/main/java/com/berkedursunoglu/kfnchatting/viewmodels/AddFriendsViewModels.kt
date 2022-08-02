@@ -29,8 +29,7 @@ class AddFriendsViewModels: ViewModel() {
                         val username = it.get("id") as String
                         val time = it.get("time") as Timestamp
                         val uid = it.get("uid") as String
-                        val collectionsID = it.get("collectionsID") as String
-                        val user = UserModel(username,time,uid,collectionsID)
+                        val user = UserModel(username,time,uid)
                         arrayList.add(user)
                     }
                     addUser.value = arrayList

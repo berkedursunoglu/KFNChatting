@@ -49,7 +49,6 @@ class RequestFriendsFragment : Fragment() {
             requestFriendsRecyclerView = RequestRecyclerView(requestFriendsList)
             dataBinding.requestRecyclerView.adapter = requestFriendsRecyclerView
         })
-
     }
 
 

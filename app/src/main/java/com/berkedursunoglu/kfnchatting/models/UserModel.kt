@@ -5,7 +5,6 @@ import com.google.firebase.Timestamp
 data class UserModel(
     var userID:String,
     var userTimestamp: Timestamp,
-    var userUID:String,
-    var collectionsID:String
+    var userUID:String
 ) {
 }
